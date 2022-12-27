@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
-      - name: Deploy to GCloud
-        run:
-          docker build -t smirnoveug/minsk-apartments-bot ./docker/Dockerfile \
-          docker push smirnoveug/minsk-apartments-bot:latest
+      - name: Container build
+        run: docker build -t smirnoveug/minsk-apartments-bot ./docker/Dockerfile
+      - name: Container push
+        run: docker push smirnoveug/minsk-apartments-bot:latest
