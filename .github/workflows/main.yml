@@ -14,7 +14,6 @@ jobs:
       - name: files
         run: ls -la
       - name: Container build
-        working-directory: MinskApartmentsBot
         run: docker build -t smirnoveug/minsk-apartments-bot .
       - name: Container push
         run: docker push smirnoveug/minsk-apartments-bot:latest
