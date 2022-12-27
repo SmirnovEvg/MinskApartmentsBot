@@ -18,5 +18,5 @@ jobs:
     steps:
       - name: Deploy to GCloud
         run:
-          docker build -t smirnoveug/minsk-apartments-bot .
-          docker image push smirnoveug/minsk-apartments-bot:latest
+          docker build -t smirnoveug/minsk-apartments-bot ./docker/Dockerfile
+          docker push smirnoveug/minsk-apartments-bot:latest
