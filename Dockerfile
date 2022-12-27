@@ -12,4 +12,4 @@ ENV PORT 5000
 
 EXPOSE $PORT
 
-CMD ["node", "src/app.ts"]
+CMD ["npm", "start"]
