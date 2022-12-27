@@ -6,10 +6,9 @@ import { config } from 'dotenv';
 config();
 
 const ONE_MINUTE = 1000 * 60;
-
 const TOKEN = process.env.TELEGRAM_API_TOKEN;
-
 const bot = new TelegramBot(TOKEN!, { polling: true });
+let SUBSCRIPTION_ID: NodeJS.Timer;
 
 bot.onText(/get/, async (msg) => {
     let lastApartmentId = 0;
@@ -22,7 +21,7 @@ bot.onText(/get/, async (msg) => {
         onlyOwner: true,
     });
 
-    setInterval(async () => {
+    SUBSCRIPTION_ID = setInterval(async () => {
         const apartmentList = await axios.get(request_url);
 
         if (!apartmentList) {
@@ -36,4 +35,6 @@ bot.onText(/get/, async (msg) => {
     }, ONE_MINUTE)
 });
 
-
+bot.onText(/stop/, async (msg) => {
+    clearInterval(SUBSCRIPTION_ID);
+});

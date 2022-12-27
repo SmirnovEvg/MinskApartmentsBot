@@ -12,9 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-  test:
+  deploy:
     runs-on: ubuntu-latest
     needs: [checkout]
     steps:
-      - name: Test gcloud
-        run: gcloud -v
+      - deploy: Deploy to GCloud
+        run:
+          docker build -t smirnoveug/minsk-apartments-bot .
+          docker push mirnoveug/minsk-apartments-bot:latest
