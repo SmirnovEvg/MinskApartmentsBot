@@ -5,7 +5,7 @@ import { config } from 'dotenv';
 
 config();
 
-const ONE_MINUTE = 1000;
+const ONE_MINUTE = 1000 * 60;
 const TOKEN = process.env.TELEGRAM_API_TOKEN;
 const bot = new TelegramBot(TOKEN!, { polling: true });
 let SUBSCRIPTION_ID: NodeJS.Timer;
