@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - master
-
-env:
-  IMAGE_NAME: smirnoveug/minsk-apartments-bot
   
 jobs:
 
