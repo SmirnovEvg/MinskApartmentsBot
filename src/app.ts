@@ -25,7 +25,7 @@ bot.onText(/get/, async (msg) => {
         const apartmentList = await axios.get(request_url);
 
         if (!apartmentList) {
-            bot.sendMessage(chatId, 'went wrong');
+            bot.sendMessage(chatId, 'Something went wrong');
         }
 
         if (apartmentList.data.apartments[0].id !== lastApartmentId) {
