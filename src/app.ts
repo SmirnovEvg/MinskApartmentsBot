@@ -2,13 +2,27 @@ import TelegramBot from 'node-telegram-bot-api';
 import axios from 'axios';
 import getRequestUrl from  './utils/getRequestUrl';
 import { config } from 'dotenv';
+import express from 'express';
+import bodyParser from 'body-parser';
 
 config();
-
 const ONE_MINUTE = 1000 * 60;
 const TOKEN = process.env.TELEGRAM_API_TOKEN;
 const bot = new TelegramBot(TOKEN!, { polling: true });
 let SUBSCRIPTION_ID: NodeJS.Timer;
+
+const app = express();
+app.use(bodyParser.json());
+
+app.post('/', (req, res) => {
+    console.log(req.body);
+    res.send(req.body);
+});
+// Listening
+app.listen(5000, () => {
+    console.log(`Listening on port ${5000}`);
+});
+
 
 bot.onText(/get/, async (msg) => {
     let lastApartmentId = 0;
