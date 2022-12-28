@@ -39,7 +39,7 @@ bot.onText(/get/, async (msg) => {
 
     SUBSCRIPTION_ID = setInterval(async () => {
         const apartmentList = await axios.get(request_url);
-
+        console.log('query')
         if (!apartmentList) {
             bot.sendMessage(chatId, 'Something went wrong!!');
         }
