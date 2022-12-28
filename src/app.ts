@@ -28,6 +28,8 @@ bot.onText(/get/, async (msg) => {
     let lastApartmentId = 0;
 
     const chatId = msg.chat.id;
+    bot.sendMessage(chatId, 'post');
+
     const request_url = getRequestUrl({
         rentType: '1_room',
         min: 200,
