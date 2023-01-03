@@ -1,18 +1,6 @@
-interface IParams {
-  rentType?: string;
-  min?: number;
-  max?: number;
-  currency?: 'usd' | 'byn';
-  onlyOwner?: boolean;
-}
+import {IParams, RentType} from "../types";
 
-const getRequestUrl = ({ rentType, min, max, currency, onlyOwner }: {
-  rentType?: string;
-  min?: number;
-  max?: number;
-  currency?: 'usd' | 'byn';
-  onlyOwner?: boolean;
-}) => {
+const getRequestUrl = ({ rentType, min, max, currency, onlyOwner }: IParams) => {
   let url = new URL('https://r.onliner.by/sdapi/ak.api/search/apartments');
 
   if (rentType) {
